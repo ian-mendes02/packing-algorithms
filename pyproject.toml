@@ -1,0 +1,20 @@
+[project]
+name = "packing-algorithms"
+description = "A comparative study on packing algorithms in the context of last-mile logistics"
+version = "0.0.1"
+readme = "README"
+license = "BSD-3-Clause"
+requires-python = ">= 3.14"
+authors = [{ name = "Ian Mendes", email = "ianlucamendes02@gmail.com" }]
+maintainers = [{ name = "Ian Mendes", email = "ianlucamendes02@gmail.com" }]
+dependencies = [
+    "pydantic",
+    "numpy",
+    "matplotlib",
+    "pyvista",
+    "pytest",
+    "typer"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]

@@ -1,0 +1,200 @@
+[
+  {
+    "sku": "SLP",
+    "name": "Light Package (S)",
+    "dimensions": {
+      "length": 5.0,
+      "width": 5.0,
+      "height": 7.5
+    },
+    "weight": 82.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "MLP",
+    "name": "Light Package (M)",
+    "dimensions": {
+      "length": 7.5,
+      "width": 10.0,
+      "height": 10.0
+    },
+    "weight": 128.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "LLP",
+    "name": "Light Package (L)",
+    "dimensions": {
+      "length": 20.0,
+      "width": 20.0,
+      "height": 30.0
+    },
+    "weight": 256.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "SLFP",
+    "name": "Light Fragile Package (S)",
+    "dimensions": {
+      "length": 5.0,
+      "width": 5.0,
+      "height": 7.5
+    },
+    "weight": 50.0,
+    "is_fragile": true
+  },
+  {
+    "sku": "MLFP",
+    "name": "Light Fragile Package (M)",
+    "dimensions": {
+      "length": 7.5,
+      "width": 10.0,
+      "height": 10.0
+    },
+    "weight": 100.0,
+    "is_fragile": true
+  },
+  {
+    "sku": "LLFP",
+    "name": "Light Fragile Package (L)",
+    "dimensions": {
+      "length": 20.0,
+      "width": 20.0,
+      "height": 30.0
+    },
+    "weight": 200.0,
+    "is_fragile": true
+  },
+  {
+    "sku": "SHC",
+    "name": "Heavy Crate (S)",
+    "dimensions": {
+      "length": 16.0,
+      "width": 16.0,
+      "height": 16.0
+    },
+    "weight": 256.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "MHC",
+    "name": "Heavy Crate (M)",
+    "dimensions": {
+      "length": 24.0,
+      "width": 24.0,
+      "height": 24.0
+    },
+    "weight": 512.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "LHC",
+    "name": "Heavy Crate (L)",
+    "dimensions": {
+      "length": 42.0,
+      "width": 42.0,
+      "height": 42.0
+    },
+    "weight": 1500.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "SLP2",
+    "name": "Long Package (S)",
+    "dimensions": {
+      "length": 16.0,
+      "width": 6.0,
+      "height": 5.0
+    },
+    "weight": 74.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "MLP2",
+    "name": "Long Package (M)",
+    "dimensions": {
+      "length": 30.0,
+      "width": 11.0,
+      "height": 8.0
+    },
+    "weight": 231.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "LLP2",
+    "name": "Long Package (L)",
+    "dimensions": {
+      "length": 64.0,
+      "width": 24.0,
+      "height": 24.0
+    },
+    "weight": 345.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "SLHP",
+    "name": "Long Heavy Package (S)",
+    "dimensions": {
+      "length": 32.0,
+      "width": 10.0,
+      "height": 10.0
+    },
+    "weight": 300.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "MLHP",
+    "name": "Long Heavy Package (M)",
+    "dimensions": {
+      "length": 48.0,
+      "width": 16.0,
+      "height": 16.0
+    },
+    "weight": 500.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "LLHP",
+    "name": "Long Heavy Package (L)",
+    "dimensions": {
+      "length": 64.0,
+      "width": 24.0,
+      "height": 24.0
+    },
+    "weight": 1000.0,
+    "is_fragile": false
+  },
+  {
+    "sku": "SFHP",
+    "name": "Heavy Fragile Package (S)",
+    "dimensions": {
+      "length": 10.0,
+      "width": 10.0,
+      "height": 15.5
+    },
+    "weight": 300.0,
+    "is_fragile": true
+  },
+  {
+    "sku": "MFHP",
+    "name": "Heavy Fragile Package (M)",
+    "dimensions": {
+      "length": 20.0,
+      "width": 23.0,
+      "height": 22.5
+    },
+    "weight": 500.0,
+    "is_fragile": true
+  },
+  {
+    "sku": "LFHP",
+    "name": "Heavy Fragile Package (L)",
+    "dimensions": {
+      "length": 40.0,
+      "width": 20.0,
+      "height": 25.0
+    },
+    "weight": 1000.0,
+    "is_fragile": true
+  }
+]

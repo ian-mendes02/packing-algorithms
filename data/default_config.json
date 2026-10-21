@@ -1,0 +1,60 @@
+{
+    "products": "./data/products.json",
+    "containers": "./data/containers.json",
+    "params": {
+        "minimum_support_ratio": 0.8,
+        "gga_height_penalty_factor": 1.15,
+        "gga_mutation_probability": 0.25,
+        "gga_population_size": 64,
+        "gga_max_iterations": 100,
+        "gga_convergence_limit": 10
+    },
+    "benchmark": {
+        "cart_sizes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            24,
+            28,
+            32,
+            46,
+            50
+        ],
+        "export": {
+            "occupation_ratio": {
+                "title": "Average occupation ratio per cart size by algorithm",
+                "path": "./data/export/occupation-ratio.png",
+                "xlabel": "Number of items in cart",
+                "ylabel": "Average occupation ratio (%)"
+            },
+            "execution_times": {
+                "title": "Average execution time per cart size by algorithm",
+                "path": "./data/export/execution-times.png",
+                "xlabel": "Number of items in cart",
+                "ylabel": "Average execution time (ms)"
+            },
+            "parcel_count": {
+                "title": "Average number of parcels per cart size by algorithm",
+                "path": "./data/export/parcel-count.png",
+                "xlabel": "Number of items in cart",
+                "ylabel": "Average number of parcels"
+            }
+        },
+        "colors": {
+            "ffd": "#1f77b4",
+            "gga": "#ff7f0e"
+        }
+    }
+}
