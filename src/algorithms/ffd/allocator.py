@@ -72,7 +72,7 @@ class Allocator:
     @final
     def _can_allocate(self, package: Package) -> bool:
         if (self._allocated_weight + package.weight
-            > self._container.max_capacity):
+            > self._container.capacity):
             return False
 
         if self.num_allocated:

@@ -41,7 +41,7 @@ class Package(Box):
 class Container(Box):
     id: str
     base_weight: float
-    max_capacity: float
+    capacity: float
 
     def __init__(
         self,
@@ -50,12 +50,12 @@ class Container(Box):
         width: float,
         height: float,
         base_weight: float,
-        max_capacity: float,
+        capacity: float,
     ) -> None:
         super().__init__((length, width, height))
         self.id = container_id
         self.base_weight = base_weight
-        self.max_capacity = max_capacity
+        self.capacity = capacity
 
     def __repr__(self) -> str:
         return f"Container({self.id})"

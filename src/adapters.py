@@ -16,7 +16,7 @@ class ContainerAdapter:
             width=c.dimensions.width,
             height=c.dimensions.height,
             base_weight=c.base_weight,
-            max_capacity=c.capacity,
+            capacity=c.capacity,
         )
 
     @staticmethod
@@ -27,7 +27,7 @@ class ContainerAdapter:
             width=p.dimensions.width,
             height=p.dimensions.height,
             base_weight=p.weight,
-            max_capacity=p.weight,
+            capacity=p.weight,
         )
 
     @staticmethod
@@ -38,7 +38,7 @@ class ContainerAdapter:
             width=c["dimensions"]["width"],
             height=c["dimensions"]["height"],
             base_weight=c["base_weight"],
-            max_capacity=c["capacity"],
+            capacity=c["capacity"],
         )
 
 
