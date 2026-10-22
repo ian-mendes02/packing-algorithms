@@ -30,20 +30,15 @@ class _ProgressLogger(Thread):
 
         while not self.__stop:
             i = (i + 1) % 10  # len(frames)
-            iteration_count = self.current_iteration + 1
-            progress = 100 * (iteration_count / self.__total_iterations)
-            filled_length = int(100 * iteration_count / self.__total_iterations)
+            progress = 100 * (self.current_iteration / self.__total_iterations)
+            filled_length = int(100 * self.current_iteration / self.__total_iterations)
             bar = "█" * filled_length + "-" * (100 - filled_length)
 
             stdout.write(
                 f"\r{frames[i]} Progress: |{bar}| {progress:.2f}% "
-                f"({iteration_count}/{self.__total_iterations} iterations)",
+                f"({self.current_iteration + 1}/{self.__total_iterations} iterations)",
             )
             stdout.flush()
-
-            if self.current_iteration == self.__total_iterations:
-                break
-
             sleep(0.1)
 
         stdout.write("\n\r")
@@ -72,7 +67,11 @@ def _task(payload: PayloadDict) -> ExecutionReport:
     )
 
 
-def run_benchmark(dataset: list[list[ProductDict]]) -> list[BenchmarkMetrics]:
+def run_benchmark(
+    dataset: list[list[ProductDict]],
+    rounds: int,
+) -> list[BenchmarkMetrics]:
+    dataset *= rounds
     sample_count = len(dataset)
     total_iterations = sample_count * 2
     logger = _ProgressLogger(total_iterations)

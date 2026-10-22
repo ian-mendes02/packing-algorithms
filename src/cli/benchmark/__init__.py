@@ -15,9 +15,9 @@ def benchmark(
     if not config.cart_sizes:
         raise Exception("No cart sizes provided.")
 
-    cart_sizes = sorted(config.cart_sizes * rounds)
+    cart_sizes: list[int] = sorted(config.cart_sizes)
     dataset = [create_cart(size) for size in cart_sizes]
-    computed_metrics = run_benchmark(dataset)
+    computed_metrics = run_benchmark(dataset, rounds)
 
     print("Exporting execution results...")
 
