@@ -13,9 +13,10 @@ Two algorithms were implemented:
 
 ### Setup
 
-Python >= 3.14 is required to run this application.
+> [!IMPORTANT]
+> Python >= 3.14 is required to run this application.
 
-To run it, first set up a virtual environment. Open your terminal in the target folder and run:
+To run the application, first set up a virtual environment. Open your terminal in the target folder and run:
 
 - **macOS/Unix:** `python3 -m venv .venv`
 - **Windows**: `python -m venv .venv` or `py -m venv .venv`
@@ -25,7 +26,7 @@ Before installing any packages, make sure to activate the environment:
 - **macOS/Unix:** `source .venv/bin/activate`
 - **Windows**: `.venv\Scripts\Activate.ps1`
 
-To deactivate it, just run:
+To deactivate it, run:
 
 ```bash
 deactivate
@@ -33,7 +34,7 @@ deactivate
 
 ### Installing dependencies
 
-To install the required dependencies, make sure the virtual environment is active, then run:
+To install the required dependencies, first make sure the virtual environment is active, then run:
 
 ```bash
 python -m pip install .
@@ -93,7 +94,7 @@ Where `capacity` is the maximum weight the container can hold.
 
 ### Execution parameters
 
-The `params` field in the configuration file allows you to specify various execution parameters for the algorithms (mainly for the GGA).
+The `params` field in the configuration file allows you to specify various execution parameters.
 
 ```json
 {
@@ -106,6 +107,9 @@ The `params` field in the configuration file allows you to specify various execu
 }
 ```
 
+> [!NOTE]
+> If not provided, the execution parameters will be set to predefined values. See the [default execution parameters](data/default_config.json) for more information.
+
 Where:
 
 - `minimum_support_ratio` is the minimum ratio of support required for a product to be considered stable in a container;
@@ -117,7 +121,7 @@ Where:
 
 ### Benchmarking parameters
 
-The `benchmark` field can be used to configure which and how execution metrics are exported:
+The `benchmark` field can be used to configure how execution metrics are exported:
 
 ```json
 {
@@ -172,6 +176,9 @@ The `benchmark` command will run a benchmark of both algorithms using the config
 ```bash
 python . benchmark {rounds=1}
 ```
+
+> [!TIP]
+> Due to the randomness of the genetic algorithm, it is recommended to run 5 or more rounds to obtain a more accurate comparison between the two algorithms.
 
 ### Generating a configuration file
 
