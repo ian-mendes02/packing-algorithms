@@ -17,12 +17,19 @@ from .objects import ExecutionReport, BenchmarkMetrics
 class _ProgressLogger(Thread):
     def __init__(self, total_iterations: int) -> None:
         super().__init__()
-        self.current_iteration = 0
+        self.__current_iteration = 0
         self.__total_iterations = total_iterations
         self.__stop = False
 
     def stop(self):
         self.__stop = True
+
+    def update(self):
+        self.__current_iteration += 1
+
+    def join(self, timeout=None):
+        self.__stop = True
+        super().join()
 
     def run(self):
         frames = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
@@ -30,18 +37,21 @@ class _ProgressLogger(Thread):
 
         while not self.__stop:
             i = (i + 1) % 10  # len(frames)
-            progress = 100 * (self.current_iteration / self.__total_iterations)
-            filled_length = int(100 * self.current_iteration / self.__total_iterations)
+            progress = self.__current_iteration / self.__total_iterations
+            percentage = 100 * progress
+            filled_length = int(percentage)
             bar = "█" * filled_length + "-" * (100 - filled_length)
+            iterations = (f"({self.__current_iteration + 1}"
+                          f"/{self.__total_iterations} iterations)")
 
             stdout.write(
-                f"\r{frames[i]} Progress: |{bar}| {progress:.2f}% "
-                f"({self.current_iteration + 1}/{self.__total_iterations} iterations)",
+                f"\r{frames[i]} Progress: |{bar}| "
+                f"{percentage:.2f}% {iterations}",
             )
             stdout.flush()
             sleep(0.1)
 
-        stdout.write("\n\r")
+        stdout.write("\033[2K\r")
 
 
 def _task(payload: PayloadDict) -> ExecutionReport:
@@ -112,17 +122,15 @@ def run_benchmark(
     try:
         for size, payload in zip(sample_sizes, ffd_payloads):
             results[size].ffd_results.append(_task(payload))
-            logger.current_iteration += 1
+            logger.update()
 
         for size, payload in zip(sample_sizes, gga_payloads):
             results[size].gga_results.append(_task(payload))
-            logger.current_iteration += 1
+            logger.update()
 
-        logger.stop()
         logger.join()
 
     except KeyboardInterrupt as e:
-        logger.stop()
         logger.join()
         raise e
 
