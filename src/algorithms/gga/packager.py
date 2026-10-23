@@ -1,4 +1,4 @@
-from random import random, getrandbits
+from random import random, getrandbits, seed
 from typing import Callable, Iterable, Self
 
 from src.protocols import PackingAlgorithm
@@ -14,6 +14,7 @@ from .validator import Validator
 
 _population_range = range(params.gga_population_size)
 _mutation_probability = params.gga_mutation_probability
+seed(params.gga_seed)
 
 
 class Packager(PackingAlgorithm):

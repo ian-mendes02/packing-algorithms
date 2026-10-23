@@ -46,6 +46,7 @@ class _ExecutionParams:
     gga_population_size: int = 64
     gga_max_iterations: int = 100
     gga_convergence_limit: int = 10
+    gga_seed: int | None = None
 
 
 @dataclass(frozen=True)

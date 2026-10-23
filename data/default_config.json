@@ -3,11 +3,12 @@
     "containers": "./data/containers.json",
     "params": {
         "minimum_support_ratio": 0.8,
-        "gga_height_penalty_factor": 1.15,
+        "gga_height_penalty_factor": 1.25,
         "gga_mutation_probability": 0.25,
         "gga_population_size": 64,
         "gga_max_iterations": 100,
-        "gga_convergence_limit": 10
+        "gga_convergence_limit": 10,
+        "gga_seed": null
     },
     "benchmark": {
         "cart_sizes": [
