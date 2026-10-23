@@ -1,5 +1,6 @@
 from threading import Thread
 from time import sleep
+from shutil import get_terminal_size
 
 from src.objects.timer import Timer
 from src.typed_dicts import (
@@ -39,15 +40,20 @@ class _ProgressLogger(Thread):
             i = (i + 1) % 10  # len(frames)
             progress = self.__current_iteration / self.__total_iterations
             percentage = 100 * progress
-            filled_length = int(percentage)
-            bar = "█" * filled_length + "-" * (100 - filled_length)
-            iterations = (f"({self.__current_iteration + 1}"
-                          f"/{self.__total_iterations} iterations)")
-
-            stdout.write(
-                f"\r{frames[i]} Progress: |{bar}| "
-                f"{percentage:.2f}% {iterations}",
+            iterations = (
+                f"({self.__current_iteration + 1}/"
+                f"{self.__total_iterations} iterations)"
             )
+            suffix = f" {percentage:.2f}% {iterations}"
+            prefix = f"{frames[i]} Progress: |"
+
+            terminal_width = get_terminal_size().columns
+            bar_width = min(80, terminal_width - len(prefix) - len(suffix) - 1)
+
+            filled_length = int(progress * bar_width)
+            bar = "█" * filled_length + "-" * (bar_width - filled_length)
+
+            stdout.write(f"\r\033[2K{prefix}{bar}|{suffix}")
             stdout.flush()
             sleep(0.1)
 
